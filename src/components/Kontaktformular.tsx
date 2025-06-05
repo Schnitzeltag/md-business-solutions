@@ -2,23 +2,37 @@
 // src/components/Kontaktformular.tsx
 
 "use client";
-import { useState } from "react";
+import { useState, useCallback, useEffect } from "react";
 import config from "../config/site.config";
 
 export default function Kontaktformular() {
   const [data, setData] = useState({ name: "", email: "", nachricht: "" });
   const [success, setSuccess] = useState(false);
 
-  function handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
-    setData({ ...data, [e.target.name]: e.target.value });
-  }
+  const handleChange = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+      setData(prev => ({ ...prev, [e.target.name]: e.target.value }));
+    },
+    []
+  );
 
-  function handleSubmit(e: React.FormEvent) {
-    e.preventDefault();
-    // TODO: Backend-Anbindung oder E-Mail (z. B. via Formspree, EmailJS)
-    setSuccess(true);
-    setData({ name: "", email: "", nachricht: "" });
-  }
+  const handleSubmit = useCallback(
+    (e: React.FormEvent) => {
+      e.preventDefault();
+      // TODO: Backend-Anbindung oder E-Mail (z. B. via Formspree, EmailJS)
+      const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email);
+      if (!emailValid) return;
+      setSuccess(true);
+      setData({ name: "", email: "", nachricht: "" });
+    },
+    [data.email]
+  );
+
+  useEffect(() => {
+    if (!success) return;
+    const id = setTimeout(() => setSuccess(false), 5000);
+    return () => clearTimeout(id);
+  }, [success]);
 
   return (
     <section id="kontakt" className="container mx-auto px-4 py-16 max-w-xl">
@@ -31,6 +45,7 @@ export default function Kontaktformular() {
           type="text"
           name="name"
           placeholder="Ihr Name"
+          aria-label="Name"
           required
           className="p-3 rounded border border-neutral-300 text-black"
           value={data.name}
@@ -40,6 +55,7 @@ export default function Kontaktformular() {
           type="email"
           name="email"
           placeholder="Ihre E-Mail"
+          aria-label="E-Mail"
           required
           className="p-3 rounded border border-neutral-300 text-black"
           value={data.email}
@@ -48,6 +64,7 @@ export default function Kontaktformular() {
         <textarea
           name="nachricht"
           placeholder="Ihre Nachricht"
+          aria-label="Nachricht"
           required
           rows={5}
           className="p-3 rounded border border-neutral-300 text-black resize-none"
