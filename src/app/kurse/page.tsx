@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { User, Users, Smartphone, Shield } from "lucide-react";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 const kurse = [
   {

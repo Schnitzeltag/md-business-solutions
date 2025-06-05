@@ -18,7 +18,7 @@ export default function HeroSection() {
         <div className="absolute inset-0 bg-gradient-to-b from-white/90 via-white/50 to-transparent dark:from-neutral-900/90 pointer-events-none" />
       </div>
       <div className="z-10 text-center pt-16 pb-24">
-        <h1 className="text-4xl md:text-6xl font-extrabold mb-6 drop-shadow-lg">
+        <h1 className="text-4xl md:text-6xl font-extrabold mb-6 drop-shadow-lg gradient-text">
           {config.hero.headline}
         </h1>
         <p className="text-xl md:text-2xl mb-8">{config.hero.subline}</p>
