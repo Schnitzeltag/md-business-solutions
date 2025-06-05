@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import { ExternalLink } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -49,11 +50,12 @@ export default function ProjektePage() {
             className="rounded-2xl shadow-lg bg-white dark:bg-neutral-900 overflow-hidden flex flex-col group hover:shadow-2xl transition"
           >
             <div className="h-56 bg-neutral-200 dark:bg-neutral-800 overflow-hidden relative">
-              <img
+              <Image
                 src={project.image}
                 alt={project.name}
+                fill
+                sizes="100vw"
                 className="object-cover w-full h-full group-hover:scale-105 transition"
-                loading="lazy"
               />
             </div>
             <div className="flex-1 flex flex-col p-7">
