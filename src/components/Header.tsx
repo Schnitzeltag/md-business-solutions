@@ -1,20 +1,35 @@
-import Head from "next/head";
-import Link from "next/link";
-import { siteConfig } from "@/config/site.config";
+// src/components/Header.tsx
 
-export function Header() {
+import Link from "next/link";
+import config from "../config/site.config";
+
+const links = [
+  { href: config.links.home, label: "Home" },
+  { href: config.links.ueberMich, label: "Über mich" },
+  { href: config.links.leistungen, label: "Leistungen" },
+  { href: config.links.kurse, label: "Kurse" },
+  { href: config.links.projekte, label: "Projekte" },
+];
+
+export default function Header() {
   return (
-    <>
-      <Head>
-        <title>{siteConfig.siteName}</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href={siteConfig.favicon} />
-      </Head>
-      <header className="bg-gray-800 text-white p-4 flex justify-between items-center">
-        <Link href="/">
-          <span className="text-xl font-bold">{siteConfig.siteName}</span>
+    <header className="sticky top-0 z-30 bg-white/80 dark:bg-neutral-900/80 shadow-md backdrop-blur">
+      <div className="container mx-auto px-4 flex justify-between items-center h-16">
+        <Link href={config.links.home} className="text-xl font-bold tracking-tight hover:opacity-80">
+          {config.company}
         </Link>
-      </header>
-    </>
+        <nav className="flex gap-4">
+          {links.map(link => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className="text-base font-medium hover:text-primary transition"
+            >
+              {link.label}
+            </Link>
+          ))}
+        </nav>
+      </div>
+    </header>
   );
 }

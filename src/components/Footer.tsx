@@ -1,12 +1,17 @@
-import Link from "next/link";
+// src/components/Footer.tsx
 
-export function Footer() {
+import Link from "next/link";
+import config from "../config/site.config";
+
+export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-white p-4 text-center text-sm mt-8">
-      <p>&copy; {new Date().getFullYear()} Max Mustermann. Alle Rechte vorbehalten.</p>
-      <div className="mt-2 space-x-2">
-        <Link href="/impressum" className="underline">Impressum</Link>
-        <Link href="/datenschutz" className="underline">Datenschutz</Link>
+    <footer className="bg-neutral-900 text-neutral-100 py-8 mt-12">
+      <div className="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4">
+        <span>&copy; {new Date().getFullYear()} {config.company}</span>
+        <nav className="flex gap-4">
+          <Link href={config.links.impressum} className="hover:underline">Impressum</Link>
+          <Link href={config.links.datenschutz} className="hover:underline">Datenschutz</Link>
+        </nav>
       </div>
     </footer>
   );
