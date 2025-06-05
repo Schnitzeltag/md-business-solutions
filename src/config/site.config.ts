@@ -10,6 +10,7 @@ const config = {
     leistungen: "/leistungen",
     projekte: "/projekte",
     kurse: "/kurse",
+    faq: "/faq",
     impressum: "/impressum",
     datenschutz: "/datenschutz",
   },
