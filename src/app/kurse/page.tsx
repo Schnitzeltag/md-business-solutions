@@ -1,6 +1,7 @@
 "use client";
 import { User, Users, Smartphone, Shield } from "lucide-react";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 const kurse = [
   {
@@ -85,12 +86,12 @@ export default function KursePage() {
       </div>
       <div className="text-center mt-14">
         <p className="mb-3 text-lg">Sie möchten teilnehmen oder haben Fragen?</p>
-        <a
+        <Link
           href="/#kontakt"
           className="inline-block px-8 py-4 rounded-full bg-primary text-white font-semibold shadow hover:scale-105 transition"
         >
           Kontakt aufnehmen
-        </a>
+        </Link>
       </div>
     </div>
   );
