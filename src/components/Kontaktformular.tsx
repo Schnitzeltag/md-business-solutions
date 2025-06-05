@@ -3,7 +3,6 @@
 
 "use client";
 import { useState, useCallback, useEffect } from "react";
-import config from "../config/site.config";
 
 export default function Kontaktformular() {
   const [data, setData] = useState({ name: "", email: "", nachricht: "" });

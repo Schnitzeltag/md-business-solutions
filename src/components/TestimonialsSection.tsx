@@ -1,4 +1,5 @@
 // src/components/TestimonialsSection.tsx
+import Image from "next/image";
 import config from "../config/site.config";
 
 export default function TestimonialsSection() {
@@ -9,9 +10,11 @@ export default function TestimonialsSection() {
         <div className="grid md:grid-cols-3 gap-8">
           {config.testimonials.map((testimonial, idx) => (
             <div key={idx} className="bg-neutral-100 dark:bg-neutral-800 rounded-2xl p-8 flex flex-col items-center shadow transition hover:scale-105">
-              <img
+              <Image
                 src={testimonial.image}
                 alt={testimonial.name}
+                width={80}
+                height={80}
                 className="w-20 h-20 rounded-full mb-4 object-cover border-4 border-primary shadow"
               />
               <blockquote className="italic text-lg text-center mb-4">“{testimonial.text}”</blockquote>
