@@ -1,0 +1,19 @@
+diff --git a/node_modules/framer-motion/dist/es/index.mjs b/node_modules/framer-motion/dist/es/index.mjs
+index be1bc72..353ea6f 100644
+--- a/node_modules/framer-motion/dist/es/index.mjs
++++ b/node_modules/framer-motion/dist/es/index.mjs
+@@ -34,7 +34,7 @@ export { WillChangeMotionValue } from './value/use-will-change/WillChangeMotionV
+ export { resolveMotionValue } from './value/utils/resolve-motion-value.mjs';
+ export { useReducedMotion } from './utils/reduced-motion/use-reduced-motion.mjs';
+ export { useReducedMotionConfig } from './utils/reduced-motion/use-reduced-motion-config.mjs';
+-export * from 'motion-utils';
++// export * from 'motion-utils';
+ export { MotionGlobalConfig } from 'motion-utils';
+ export { animationControls } from './animation/hooks/animation-controls.mjs';
+ export { useAnimate } from './animation/hooks/use-animate.mjs';
+@@ -81,4 +81,4 @@ export { scrollInfo } from './render/dom/scroll/track.mjs';
+ export { inView } from './render/dom/viewport/index.mjs';
+ export { stagger } from './animation/utils/stagger.mjs';
+ export { distance, distance2D } from './utils/distance.mjs';
+-export * from 'motion-dom';
++// export * from 'motion-dom';
